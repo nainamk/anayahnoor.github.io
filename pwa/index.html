@@ -76,6 +76,7 @@ header h1 {
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
+    transition: 0.3s;
 }
 
 .sidebar li:hover {
@@ -96,11 +97,12 @@ header h1 {
     width: 100%;
     max-width: 500px;
     border-radius: 15px;
+    margin-bottom: 10px;
 }
 
-audio {
-    width: 100%;
+iframe {
     margin-top: 15px;
+    border-radius: 10px;
 }
 </style>
 </head>
@@ -143,9 +145,14 @@ audio {
 
         <p id="description">Click a topic to learn about a planet.</p>
 
-        <audio id="audio" controls>
-            <source id="audioSource" src="">
-        </audio>
+        <!-- VIDEO -->
+        <iframe id="video"
+            width="100%"
+            height="315"
+            src=""
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
     </div>
 
 </div>
@@ -158,63 +165,61 @@ function loadTopic(topic) {
             title: "The Sun ☀️",
             img: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
             desc: "The Sun is the center of our solar system.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            video: "https://www.youtube.com/embed/libKVRa01L8"
         },
         mercury: {
             title: "Mercury",
             img: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg",
             desc: "Mercury is the closest planet to the Sun.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            video: "https://www.youtube.com/embed/0KBjnNuhRHs"
         },
         venus: {
             title: "Venus",
             img: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
             desc: "Venus is the hottest planet.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+            video: "https://www.youtube.com/embed/BvXa1n9fjow"
         },
         earth: {
             title: "Earth 🌍",
             img: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
             desc: "Earth supports life.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+            video: "https://www.youtube.com/embed/GOAEIMx39-w"
         },
         mars: {
             title: "Mars 🔴",
             img: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
             desc: "Mars is the red planet.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+            video: "https://www.youtube.com/embed/D8pnmwOXhoY"
         },
         jupiter: {
             title: "Jupiter",
             img: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg",
             desc: "Jupiter is the largest planet.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+            video: "https://www.youtube.com/embed/PtkqwslbLY8"
         },
         saturn: {
             title: "Saturn 🪐",
             img: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
             desc: "Saturn is famous for its rings.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+            video: "https://www.youtube.com/embed/epZdZaEQhS0"
         },
         neptune: {
             title: "Neptune",
             img: "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
             desc: "Neptune has strong winds.",
-            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+            video: "https://www.youtube.com/embed/NStn7zZKXfE"
         }
     };
 
     document.getElementById("title").innerText = data[topic].title;
     document.getElementById("image").src = data[topic].img;
     document.getElementById("description").innerText = data[topic].desc;
-
-    const audio = document.getElementById("audio");
-    const source = document.getElementById("audioSource");
-
-    source.src = data[topic].audio;
-    audio.load();
+    document.getElementById("video").src = data[topic].video;
 }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
