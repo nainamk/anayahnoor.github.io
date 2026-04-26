@@ -1,0 +1,28 @@
+{
+  "planets": [
+    {
+      "title": "Mercury",
+      "description": "Mercury is the smallest planet and the closest planet to the Sun. It has very hot days and freezing nights.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg",
+      "audio": "audio/mercury.mp3"
+    },
+    {
+      "title": "Venus",
+      "description": "Venus is the hottest planet in the Solar System. It has thick clouds and a toxic atmosphere.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+      "audio": "audio/venus.mp3"
+    },
+    {
+      "title": "Earth",
+      "description": "Earth is our home planet. It has liquid water, oxygen, and life.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+      "audio": "audio/earth.mp3"
+    },
+    {
+      "title": "Mars",
+      "description": "Mars is known as the Red Planet. Scientists study Mars because it may have had water in the past.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+      "audio": "audio/mars.mp3"
+    }
+  ]
+}
