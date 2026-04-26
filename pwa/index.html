@@ -1,15 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Assignment 3 - PlanetPal PWA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>PlanetPal</title>
 
-    <!-- PWA -->
-    <link rel="manifest" href="./manifest.json">
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #cfd9df, #e2ebf0);
+}
 
-    <!-- CSS (FIXED PATH) -->
-    <link rel="stylesheet" href="./style.css">
+/* HEADER */
+header {
+    background: #1e2f44;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* BUTTON BAR */
+.nav-buttons {
+    background: #ddd;
+    text-align: center;
+    padding: 15px;
+}
+
+.nav-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background: #2c3e50;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-buttons button:hover {
+    background: #007acc;
+}
+
+/* MAIN LAYOUT */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+/* TOPIC LIST */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin: 8px 0;
+    background: #f3f3f3;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.sidebar li:hover {
+    background: #007acc;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* MAIN CONTENT */
+.main {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.main img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.main p {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* AUDIO PLAYER */
+audio {
+    margin-top: 20px;
+    width: 100%;
+}
+</style>
 </head>
 
 <body>
@@ -19,34 +130,95 @@
     <p>Learn about the Solar System</p>
 </header>
 
-<nav>
-    <button id="installBtn" hidden>Install App</button>
-    <a href="./promo.html">Promo Page</a>
-    <a href="./instructions.html">Instructions</a>
-</nav>
+<div class="nav-buttons">
+    <button>Install App</button>
+    <button>Promo Page</button>
+    <button>Instructions</button>
+</div>
 
-<main>
-    <section class="menu">
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
         <h2>Topics</h2>
-        <div id="topicMenu"></div>
-    </section>
+        <ul>
+            <li onclick="loadTopic('sun')">☀️ Sun</li>
+            <li onclick="loadTopic('mercury')">Mercury</li>
+            <li onclick="loadTopic('venus')">Venus</li>
+            <li onclick="loadTopic('earth')">Earth</li>
+            <li onclick="loadTopic('mars')">Mars</li>
+            <li onclick="loadTopic('jupiter')">Jupiter</li>
+            <li onclick="loadTopic('saturn')">Saturn</li>
+            <li onclick="loadTopic('neptune')">Neptune</li>
+        </ul>
+    </div>
 
-    <section class="content">
-        <h2 id="topicTitle">Welcome to PlanetPal</h2>
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <h2 id="title">Welcome to PlanetPal</h2>
 
-        <img id="topicImage"
-             src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg"
-             alt="Solar System">
+        <img id="image" src="https://spaceplace.nasa.gov/review/planets/solar-system.en.png">
 
-        <p id="topicDescription">
-            Choose a topic to start learning.
-        </p>
+        <p id="description">Choose a topic to start learning.</p>
 
-        <audio id="topicAudio" controls></audio>
-    </section>
-</main>
+        <audio id="audio" controls>
+            <source id="audioSource" src="">
+        </audio>
+    </div>
 
-<script src="./app.js"></script>
+</div>
+
+<script>
+function loadTopic(topic) {
+
+    let data = {
+        sun: {
+            title: "The Sun ☀️",
+            img: "https://spaceplace.nasa.gov/sun/en/sun.en.jpg",
+            desc: "The Sun is the center of our solar system and provides light and heat to all planets."
+        },
+        mercury: {
+            title: "Mercury",
+            img: "https://spaceplace.nasa.gov/mercury/en/mercury.en.jpg",
+            desc: "Mercury is the closest planet to the Sun and has extreme temperatures."
+        },
+        venus: {
+            title: "Venus",
+            img: "https://spaceplace.nasa.gov/venus/en/venus.en.jpg",
+            desc: "Venus is the hottest planet with thick toxic clouds."
+        },
+        earth: {
+            title: "Earth 🌍",
+            img: "https://spaceplace.nasa.gov/earth/en/earth.en.jpg",
+            desc: "Earth is the only known planet that supports life."
+        },
+        mars: {
+            title: "Mars 🔴",
+            img: "https://spaceplace.nasa.gov/mars/en/mars.en.jpg",
+            desc: "Mars is known as the red planet and may have had water in the past."
+        },
+        jupiter: {
+            title: "Jupiter",
+            img: "https://spaceplace.nasa.gov/jupiter/en/jupiter.en.jpg",
+            desc: "Jupiter is the largest planet in the solar system."
+        },
+        saturn: {
+            title: "Saturn 🪐",
+            img: "https://spaceplace.nasa.gov/saturn/en/saturn.en.jpg",
+            desc: "Saturn is famous for its beautiful rings."
+        },
+        neptune: {
+            title: "Neptune",
+            img: "https://spaceplace.nasa.gov/neptune/en/neptune.en.jpg",
+            desc: "Neptune is the farthest planet and has strong winds."
+        }
+    };
+
+    document.getElementById("title").innerText = data[topic].title;
+    document.getElementById("image").src = data[topic].img;
+    document.getElementById("description").innerText = data[topic].desc;
+}
+</script>
 
 </body>
 </html>
