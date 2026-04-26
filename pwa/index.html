@@ -24,12 +24,7 @@ header h1 {
     font-size: 32px;
 }
 
-header p {
-    margin-top: 5px;
-    opacity: 0.8;
-}
-
-/* BUTTON BAR */
+/* BUTTONS */
 .nav-buttons {
     background: #ddd;
     text-align: center;
@@ -44,14 +39,13 @@ header p {
     color: white;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .nav-buttons button:hover {
     background: #007acc;
 }
 
-/* MAIN LAYOUT */
+/* LAYOUT */
 .container {
     display: flex;
     gap: 20px;
@@ -64,14 +58,12 @@ header p {
     background: white;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .sidebar h2 {
     text-align: center;
 }
 
-/* TOPIC LIST */
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -84,22 +76,19 @@ header p {
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    transition: 0.3s;
 }
 
 .sidebar li:hover {
     background: #007acc;
     color: white;
-    transform: scale(1.05);
 }
 
-/* MAIN CONTENT */
+/* MAIN */
 .main {
     flex: 1;
     background: white;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     text-align: center;
 }
 
@@ -107,18 +96,11 @@ header p {
     width: 100%;
     max-width: 500px;
     border-radius: 15px;
-    margin-top: 15px;
 }
 
-.main p {
-    font-size: 18px;
-    margin-top: 15px;
-}
-
-/* AUDIO PLAYER */
 audio {
-    margin-top: 20px;
     width: 100%;
+    margin-top: 15px;
 }
 </style>
 </head>
@@ -157,9 +139,9 @@ audio {
     <div class="main">
         <h2 id="title">Welcome to PlanetPal</h2>
 
-        <img id="image" src="https://spaceplace.nasa.gov/review/planets/solar-system.en.png">
+        <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg">
 
-        <p id="description">Choose a topic to start learning.</p>
+        <p id="description">Click a topic to learn about a planet.</p>
 
         <audio id="audio" controls>
             <source id="audioSource" src="">
@@ -171,52 +153,66 @@ audio {
 <script>
 function loadTopic(topic) {
 
-    let data = {
+    const data = {
         sun: {
             title: "The Sun ☀️",
-            img: "https://spaceplace.nasa.gov/sun/en/sun.en.jpg",
-            desc: "The Sun is the center of our solar system and provides light and heat to all planets."
+            img: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
+            desc: "The Sun is the center of our solar system.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
         },
         mercury: {
             title: "Mercury",
-            img: "https://spaceplace.nasa.gov/mercury/en/mercury.en.jpg",
-            desc: "Mercury is the closest planet to the Sun and has extreme temperatures."
+            img: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg",
+            desc: "Mercury is the closest planet to the Sun.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
         },
         venus: {
             title: "Venus",
-            img: "https://spaceplace.nasa.gov/venus/en/venus.en.jpg",
-            desc: "Venus is the hottest planet with thick toxic clouds."
+            img: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+            desc: "Venus is the hottest planet.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
         },
         earth: {
             title: "Earth 🌍",
-            img: "https://spaceplace.nasa.gov/earth/en/earth.en.jpg",
-            desc: "Earth is the only known planet that supports life."
+            img: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+            desc: "Earth supports life.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
         },
         mars: {
             title: "Mars 🔴",
-            img: "https://spaceplace.nasa.gov/mars/en/mars.en.jpg",
-            desc: "Mars is known as the red planet and may have had water in the past."
+            img: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+            desc: "Mars is the red planet.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
         },
         jupiter: {
             title: "Jupiter",
-            img: "https://spaceplace.nasa.gov/jupiter/en/jupiter.en.jpg",
-            desc: "Jupiter is the largest planet in the solar system."
+            img: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg",
+            desc: "Jupiter is the largest planet.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
         },
         saturn: {
             title: "Saturn 🪐",
-            img: "https://spaceplace.nasa.gov/saturn/en/saturn.en.jpg",
-            desc: "Saturn is famous for its beautiful rings."
+            img: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
+            desc: "Saturn is famous for its rings.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
         },
         neptune: {
             title: "Neptune",
-            img: "https://spaceplace.nasa.gov/neptune/en/neptune.en.jpg",
-            desc: "Neptune is the farthest planet and has strong winds."
+            img: "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
+            desc: "Neptune has strong winds.",
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
         }
     };
 
     document.getElementById("title").innerText = data[topic].title;
     document.getElementById("image").src = data[topic].img;
     document.getElementById("description").innerText = data[topic].desc;
+
+    const audio = document.getElementById("audio");
+    const source = document.getElementById("audioSource");
+
+    source.src = data[topic].audio;
+    audio.load();
 }
 </script>
 
