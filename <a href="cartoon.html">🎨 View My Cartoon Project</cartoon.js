@@ -1,50 +1,79 @@
-const canvas = document.getElementById("cartoonCanvas");
-const ctx = canvas.getContext("2d");
+// Get canvas
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
 
-// Sky
+/////////////////////////////////////////////////////
+// BACKGROUND
+/////////////////////////////////////////////////////
 ctx.fillStyle = "skyblue";
-ctx.fillRect(0, 0, 800, 500);
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-// Sun
+/////////////////////////////////////////////////////
+// SUN
+/////////////////////////////////////////////////////
 ctx.beginPath();
-ctx.arc(100, 100, 50, 0, Math.PI * 2);
+ctx.arc(700, 80, 50, 0, Math.PI * 2);
 ctx.fillStyle = "yellow";
 ctx.fill();
+ctx.stroke();
 
-// Ground
+/////////////////////////////////////////////////////
+// GROUND
+/////////////////////////////////////////////////////
 ctx.fillStyle = "green";
-ctx.fillRect(0, 350, 800, 150);
+ctx.fillRect(0, 350, canvas.width, 150);
 
-// House
+/////////////////////////////////////////////////////
+// HOUSE BASE
+/////////////////////////////////////////////////////
 ctx.fillStyle = "brown";
-ctx.fillRect(300, 250, 200, 150);
+ctx.fillRect(250, 200, 300, 200);
 
-// Roof
+/////////////////////////////////////////////////////
+// ROOF
+/////////////////////////////////////////////////////
 ctx.beginPath();
-ctx.moveTo(300, 250);
-ctx.lineTo(400, 180);
-ctx.lineTo(500, 250);
+ctx.moveTo(250, 200);
+ctx.lineTo(400, 100);
+ctx.lineTo(550, 200);
+ctx.closePath();
 ctx.fillStyle = "red";
 ctx.fill();
+ctx.stroke();
 
-// Door
+/////////////////////////////////////////////////////
+// DOOR
+/////////////////////////////////////////////////////
 ctx.fillStyle = "black";
-ctx.fillRect(380, 320, 40, 80);
+ctx.fillRect(370, 300, 60, 100);
 
-// Window
+/////////////////////////////////////////////////////
+// WINDOWS
+/////////////////////////////////////////////////////
 ctx.fillStyle = "lightblue";
-ctx.fillRect(320, 280, 40, 40);
+ctx.fillRect(280, 240, 50, 50);
+ctx.fillRect(470, 240, 50, 50);
 
-// Text
+/////////////////////////////////////////////////////
+// CAPTION TEXT
+/////////////////////////////////////////////////////
 ctx.fillStyle = "black";
 ctx.font = "20px Arial";
-ctx.fillText("My Cartoon 🌞", 320, 40);
+ctx.fillText("Welcome to My Cartoon House!", 250, 30);
 
-// Fence (loop + translate)
-for (let i = 0; i < 10; i++) {
-  ctx.save();
-  ctx.translate(i * 40, 360);
-  ctx.fillStyle = "tan";
-  ctx.fillRect(0, 0, 10, 40);
-  ctx.restore();
+/////////////////////////////////////////////////////
+// FOR LOOP + TRANSLATE (GRASS)
+/////////////////////////////////////////////////////
+for (let i = 0; i < 20; i++) {
+    ctx.save();
+    ctx.translate(i * 40, 400);
+
+    ctx.beginPath();
+    ctx.moveTo(10, 0);
+    ctx.lineTo(15, -20);
+    ctx.lineTo(20, 0);
+    ctx.strokeStyle = "darkgreen";
+    ctx.stroke();
+
+    ctx.restore();
 }
