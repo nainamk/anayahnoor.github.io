@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multimedia Dictionary</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        select, textarea, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Multimedia Dictionary</h1>
+
+<!-- WORD SECTION -->
+<h3>Select a Word</h3>
+<select id="wordMenu" onchange="showSentence()">
+    <option>-- Select a Word --</option>
+
+    <option value="Apple" data-sentence="An apple is a sweet red fruit.">Apple</option>
+    <option value="Dog" data-sentence="A dog is a friendly animal.">Dog</option>
+    <option value="Car" data-sentence="A car is used for transportation.">Car</option>
+    <option value="Book" data-sentence="A book contains stories and information.">Book</option>
+    <option value="Sun" data-sentence="The sun gives us light and heat.">Sun</option>
+</select>
+
+<button onclick="speakWord()">🔊 Speak Word</button>
+
+<!-- SENTENCE SECTION -->
+<h3>Sentence</h3>
+<textarea id="sentenceBox" readonly></textarea>
+
+<br>
+
+<button onclick="speakSentence()">🔊 Speak Sentence</button>
+
+</body>
+</html>
