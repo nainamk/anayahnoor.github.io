@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wick Project Animation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            width: 80%;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        video {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #007acc;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #ff6600;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Assignment 4 - Wick Editor Animation</h1>
+
+    <p>
+        This animation project was created using Wick Editor.
+        The scene includes multiple animated layers and moving objects
+        using tween animations.
+    </p>
+
+    <video width="700" controls>
+        <source src="wick-animation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <br>
+
+    <a href="../index.html">Back to Portfolio</a>
+
+</div>
+
+</body>
+</html>
